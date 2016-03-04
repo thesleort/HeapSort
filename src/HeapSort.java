@@ -23,8 +23,6 @@ public class HeapSort {
 
      */
 
-
-
     /*
     HEAP-INCREASE-KEY.A; i; key/
     1 if key < AOEi
@@ -33,6 +31,22 @@ public class HeapSort {
     4 while i > 1 and AOEPARENT.i / < AOEi
     5 exchange AOEi with AOEPARENT.i /
     6 i D PARENT.i /
+     */
+
+    /*
+    HEAP-MAXIMUM.A/
+    1 return AOE1
+    */
+
+    /*
+    HEAP-EXTRACT-MAX.A/
+1 if A:heap-size < 1
+2 error “heap underflow”
+3 max D AOE1
+4 AOE1 D AOEA:heap-size
+5 A:heap-size D A:heap-size  1
+6 MAX-HEAPIFY.A; 1/
+7 return max
      */
 
 
