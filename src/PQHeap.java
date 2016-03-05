@@ -61,8 +61,8 @@ public class PQHeap implements EQ {
     }
 
     @Override
-    public Element extractMin() {
-        return null;
+    public Element[] extractMin() {
+        return A;
     }
 
     @Override
