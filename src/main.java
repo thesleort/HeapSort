@@ -8,7 +8,7 @@ import java.io.PrintStream;
  */
 public class main {
     public static void main(String[] args) {
-        PQHeap pqHeap = new PQHeap(20);
+        PQHeap pqHeap = new PQHeap(0);
         File file = new File("Testnumbers.txt");
         Scanner sc = null;
         try {
