@@ -49,7 +49,7 @@ public class PQHeap implements EQ {
         return A[1].key;
     }
 
-    private void Sort(Element[] A) {
+    public void Sort() {
         HeapBuild(A);
         IntStream.range(A.length, 0).forEach(i -> {
             Exchange(0, i);
@@ -69,4 +69,5 @@ public class PQHeap implements EQ {
     public void insert(Element e) {
 
     }
+
 }
