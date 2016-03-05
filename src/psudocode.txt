@@ -1,20 +1,46 @@
-
+import java.util.stream.IntStream;
 
 public class HeapSort {
-    public static void main(String[] args) {
+    public static void main(int A[]) {
         System.out.println("CR4P");
     }
 
+    private void heapsort(int A[]){
+        heapbuild(A);
+        IntStream.range( A.length, 2 ).forEach( i -> {
+            int atemp = A[i];
+            A[i] = A[1];
+            A[1] = atemp;
+            A.length = A.length -1;
+            maxheapify(A,1);
+        });
 
+    }
     /*
-    HEAPSORT.A/
-    1 BUILD-MAX-HEAP.A/
-    2 for i D A:length downto 2
-    3 exchange AOE1 with AOEi
-    4 A:heap-size D A:heap-size  1
-    5 MAX-HEAPIFY.A; 1/
+    BUILD-MAX-HEAP.A/
+    1 A:heap-size D A:length
+    2 for i D bA:length=2c downto 1
+    3 MAX-HEAPIFY.A; i /
      */
-    private void heapbuild(){
+    private void heapbuild(int A[]){
+        IntStream.range( A.length, 1 ).forEach( i -> {maxheapify(A,i);
+        });
+    }
+    /*
+    MAX-HEAPIFY.A; i /
+    1 l D LEFT.i /
+    2 r D RIGHT.i /
+    3 if l  A:heap-size and AOEl > AOEi
+    4 largest D l
+    5 else largest D i
+    6 if r  A:heap-size and AOEr > AOElargest
+    7 largest D r
+    8 if largest ¤ i
+    9 exchange AOEi with AOElargest
+    10 MAX-HEAPIFY.A; largest/
+     */
+    private void maxheapify(int A[], int i){
+
 
     }
     /*
@@ -25,7 +51,7 @@ public class HeapSort {
      */
     private void heapinsert(){
 
-    }
+    }----------------------------------------
     /*
     HEAP-INCREASE-KEY.A; i; key/
     1 if key < AOEi
@@ -63,8 +89,8 @@ public class HeapSort {
     HEAP-MAXIMUM.A/
     1 return AOE1
     */
-    private void heapmax(){
-
+    private int heapmax(int A[]){
+        return A[1];
     }
 
     /*
@@ -77,9 +103,21 @@ public class HeapSort {
     6 MAX-HEAPIFY.A; 1/
     7 return max
      */
-    private void heapextractmax(){
+    private int heapextractmax(int A[]){
+        if (A.size < 1) throw heapunderflowException();
+        int max = heapmax(A);
+        A[1] = A[A.size];
+        A.size = A.size -1;
+        maxheapify(A,1);
+        return max;
+
+
 
     }
+
+
+
+    ;
 
 
 }
