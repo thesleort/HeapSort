@@ -70,7 +70,7 @@ public class PQHeap implements EQ {
     @Override
     public void insert(Element e) {
         Element[] temp = new Element[A.length+1];
-        temp[A.length] = e;
+        temp[temp.length-1] = e;
         A = temp;
     }
 

@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.File;
+import java.io.PrintStream;
 
 /**
  * Created by Mark jervelund <Mark@jervelund.com> on 05-Mar-16.
@@ -22,7 +23,12 @@ public class main {
 
         }
         pqHeap.Sort();
-        System.out.print(pqHeap.extractMin());
+        int g = pqHeap.extractMin().length;
+        for (Element j: pqHeap.extractMin()){
+            System.out.println(j.data);
+        }
+
+
 
     }
 }
