@@ -69,9 +69,19 @@ public class PQHeap implements EQ {
 
     @Override
     public void insert(Element e) {
-        Element[] temp = new Element[A.length+1];
-        temp[A.length] = e;
-        A = temp;
+        n++;
+        Element[] temp = A.clone();
+        A = new Element[A.length+1];
+        System.arraycopy(temp,0,A,0,temp.length);
+        A[A.length-1] = e;
+//        A.clone();
+//        A = new Element[temp.length];
+//        for(int i = 0; i < temp.length; i++){
+//            A[i] = temp[i];
+//        }
+//
+//        System.out.println("-----------------------------"+A[0].data);
+
     }
 
 }
