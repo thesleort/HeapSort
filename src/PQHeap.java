@@ -67,6 +67,10 @@ public class PQHeap implements EQ {
         return A;
     }
 
+    /**
+     * Inserts an element in the array/heap.
+     * @param e Element is an object.
+     */
     @Override
     public void insert(Element e) {
         n++;
