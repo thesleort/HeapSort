@@ -9,7 +9,7 @@ import java.io.PrintStream;
 public class main {
     public static void main(String[] args) {
         PQHeap pqHeap = new PQHeap(0);
-        File file = new File("Testnumbers.txt");
+        File file = new File("testnumbers");
         Scanner sc = null;
         try {
             sc = new Scanner(file);
