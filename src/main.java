@@ -18,9 +18,11 @@ public class main {
             e.printStackTrace();
         }
         int i = 0;
-        while (sc.hasNext()) {
-            pqHeap.insert(new Element(i, sc.nextInt()));
-            i++;
+        if (sc != null) {
+            while (sc.hasNext()) {
+                pqHeap.insertnSort(new Element(i, sc.nextInt()));
+                i++;
+            }
         }
         /**
          * While loop shows unsorted array:
@@ -29,7 +31,6 @@ public class main {
             System.out.println(j.data);
         }
         System.out.println("----------------------------");
-        pqHeap.Sort();
         /**
          * While loop shows sorted array:
          */

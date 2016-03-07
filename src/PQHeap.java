@@ -85,5 +85,9 @@ public class PQHeap implements EQ {
 //        System.out.println("-----------------------------"+A[0].data);
 
     }
+    public void insertnSort(Element e) {
+        insert(e);
+        Sort();
+    }
 
 }
