@@ -15,7 +15,6 @@ public class PQHeap implements EQ {
         this.A = new Element[maxElms];
     }
 
-
     private void HeapBuild(Element A[]) {
         n = A.length - 1;
         IntStream.range(A.length, 1).forEach(i -> {
@@ -59,7 +58,6 @@ public class PQHeap implements EQ {
             MinHeapify(A, 0);
 
         });
-
     }
 
     @Override
@@ -86,6 +84,10 @@ public class PQHeap implements EQ {
 //
 //        System.out.println("-----------------------------"+A[0].data);
 
+    }
+    public void insertnSort(Element e) {
+        insert(e);
+        Sort();
     }
 
 }

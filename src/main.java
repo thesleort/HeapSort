@@ -4,12 +4,13 @@ import java.io.File;
 import java.io.PrintStream;
 
 /**
- * Created by Mark jervelund <Mark@jervelund.com> on 05-Mar-16.
+ *      Created by Mark jervelund <Mark@jervelund.com>
+ *      & Troels Blicher Petersen <troels@newtec.dk>
  */
 public class main {
     public static void main(String[] args) {
         PQHeap pqHeap = new PQHeap(0);
-        File file = new File("Testnumbers.txt");
+        File file = new File("testnumbers");
         Scanner sc = null;
         try {
             sc = new Scanner(file);
@@ -17,18 +18,25 @@ public class main {
             e.printStackTrace();
         }
         int i = 0;
-        while (sc.hasNext()) {
-            pqHeap.insert(new Element(i, sc.nextInt()));
-            i++;
-
+        if (sc != null) {
+            while (sc.hasNext()) {
+                pqHeap.insertnSort(new Element(i, sc.nextInt()));
+                i++;
+            }
         }
-        pqHeap.Sort();
-        int g = pqHeap.extractMin().length;
-        for (Element j: pqHeap.extractMin()){
+        /**
+         * While loop shows unsorted array:
+         */
+        for (Element j : pqHeap.extractMin()) {
             System.out.println(j.data);
         }
-
-
-
+        System.out.println("----------------------------");
+        /**
+         * While loop shows sorted array:
+         */
+        int g = pqHeap.extractMin().length;
+        for (Element j : pqHeap.extractMin()) {
+            System.out.println(j.data);
+        }
     }
 }
