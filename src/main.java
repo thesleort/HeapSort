@@ -4,7 +4,8 @@ import java.io.File;
 import java.io.PrintStream;
 
 /**
- * Created by Mark jervelund <Mark@jervelund.com> on 05-Mar-16.
+ *      Created by Mark jervelund <Mark@jervelund.com>
+ *      & Troels Blicher Petersen <troels@newtec.dk>
  */
 public class main {
     public static void main(String[] args) {
@@ -20,15 +21,21 @@ public class main {
         while (sc.hasNext()) {
             pqHeap.insert(new Element(i, sc.nextInt()));
             i++;
-
         }
-        pqHeap.Sort();
-        int g = pqHeap.extractMin().length;
-        for (Element j: pqHeap.extractMin()){
+        /**
+         * While loop shows unsorted array:
+         */
+        for (Element j : pqHeap.extractMin()) {
             System.out.println(j.data);
         }
-
-
-
+        System.out.println("----------------------------");
+        pqHeap.Sort();
+        /**
+         * While loop shows sorted array:
+         */
+        int g = pqHeap.extractMin().length;
+        for (Element j : pqHeap.extractMin()) {
+            System.out.println(j.data);
+        }
     }
 }
