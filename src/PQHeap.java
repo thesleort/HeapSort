@@ -5,14 +5,16 @@ import java.util.stream.IntStream;
  * Created by Mark on 05-Mar-16.
  */
 public class PQHeap implements EQ {
-    public PQHeap(int maxElms) {
-    }
-
     private static Element[] A;
     private static int n;
     private static int left;
     private static int right;
     private static int largest;
+
+    public PQHeap(int maxElms) {
+        this.A = new Element[maxElms];
+    }
+
 
     private void HeapBuild(Element A[]) {
         n = A.length - 1;
@@ -45,11 +47,11 @@ public class PQHeap implements EQ {
     }
 
 
-    private int HeapMin(Element A[]) {
+    public int HeapMin(Element A[]) {
         return A[1].key;
     }
 
-    private void Sort(Element[] A) {
+    public void Sort() {
         HeapBuild(A);
         IntStream.range(A.length, 0).forEach(i -> {
             Exchange(0, i);
@@ -61,12 +63,29 @@ public class PQHeap implements EQ {
     }
 
     @Override
-    public Element extractMin() {
-        return null;
+    public Element[] extractMin() {
+        return A;
     }
 
+    /**
+     * Inserts an element in the array/heap.
+     * @param e Element is an object.
+     */
     @Override
     public void insert(Element e) {
+        n++;
+        Element[] temp = A.clone();
+        A = new Element[A.length+1];
+        System.arraycopy(temp,0,A,0,temp.length);
+        A[A.length-1] = e;
+//        A.clone();
+//        A = new Element[temp.length];
+//        for(int i = 0; i < temp.length; i++){
+//            A[i] = temp[i];
+//        }
+//
+//        System.out.println("-----------------------------"+A[0].data);
 
     }
+
 }
