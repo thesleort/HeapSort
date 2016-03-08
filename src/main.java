@@ -28,15 +28,14 @@ public class main {
          * While loop shows unsorted array:
          */
         pqHeap.Sort();
-        for (Element j : pqHeap.extractMin()) {
+        for (Element j : pqHeap.getHeap()) {
             System.out.println(j.data);
         }
         System.out.println("----------------------------");
         /**
          * While loop shows sorted array:
          */
-        int g = pqHeap.extractMin().length;
-        for (Element j : pqHeap.extractMin()) {
+        for (Element j : pqHeap.getHeap()) {
             System.out.println(j.data);
         }
     }
