@@ -20,13 +20,14 @@ public class main {
         int i = 0;
         if (sc != null) {
             while (sc.hasNext()) {
-                pqHeap.insertnSort(new Element(i, sc.nextInt()));
+                pqHeap.insert(new Element(i, sc.nextInt()));
                 i++;
             }
         }
         /**
          * While loop shows unsorted array:
          */
+        pqHeap.Sort();
         for (Element j : pqHeap.extractMin()) {
             System.out.println(j.data);
         }

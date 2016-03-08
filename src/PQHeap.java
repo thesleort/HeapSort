@@ -12,7 +12,7 @@ public class PQHeap implements EQ {
     private static int largest;
 
     public PQHeap(int maxElms) {
-        this.A = new Element[maxElms];
+        A = new Element[maxElms];
     }
 
     private void HeapBuild(Element A[]) {
@@ -52,12 +52,13 @@ public class PQHeap implements EQ {
 
     public void Sort() {
         HeapBuild(A);
-        IntStream.range(A.length, 0).forEach(i -> {
-            Exchange(0, i);
+    //    IntStream.range(A.length, 0).forEach(i -> {
+            for(int m = A.length-1; m > 0; m--){
+            Exchange(0, m);
             n--;
             MinHeapify(A, 0);
 
-        });
+        }
     }
 
     @Override
