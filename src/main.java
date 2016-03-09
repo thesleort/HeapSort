@@ -21,7 +21,7 @@ public class main {
         if (sc != null) {
             while (sc.hasNext()) {
                 int num = sc.nextInt();
-                pqHeap.insert(new Element(i, num));
+                pqHeap.insert(new Element(num, num));
                 i++;
             }
         }
