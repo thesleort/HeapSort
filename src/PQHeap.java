@@ -55,11 +55,6 @@ public class PQHeap implements EQ {
         Element temp = A[key];
         A[key] = A[key1];
         A[key1] = temp;
-
-        System.out.println("\n\nExchanging " + A[key].key + " with " + A[key1].key);
-        for(int i = 0; i < A.length; i++) {
-            System.out.print(A[i].key + " ");
-        }
     }
 
     public int HeapExtractMax(Element[] A) throws Exception {
