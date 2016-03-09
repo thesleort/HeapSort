@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.PrintStream;
 
 /**
- *      Created by Mark jervelund <Mark@jervelund.com>
- *      & Troels Blicher Petersen <troels@newtec.dk>
+ * Created by Mark jervelund <Mark@jervelund.com>
+ * & Troels Blicher Petersen <troels@newtec.dk>
  */
 public class main {
     public static void main(String[] args) {
@@ -20,23 +20,25 @@ public class main {
         int i = 0;
         if (sc != null) {
             while (sc.hasNext()) {
-                pqHeap.insertnSort(new Element(i, sc.nextInt()));
+                int num = sc.nextInt();
+                pqHeap.insert(new Element(num, num));
                 i++;
             }
         }
         /**
          * While loop shows unsorted array:
          */
-        for (Element j : pqHeap.extractMin()) {
-            System.out.println(j.data);
+
+        for (int j = 0; j < pqHeap.getHeap().length; j++) {
+            System.out.println(pqHeap.getHeap()[j].key + " " + pqHeap.getHeap()[j].data);
         }
-        System.out.println("----------------------------");
+        pqHeap.Sort();
+        System.out.println("\n----------------------------");
         /**
          * While loop shows sorted array:
          */
-        int g = pqHeap.extractMin().length;
-        for (Element j : pqHeap.extractMin()) {
-            System.out.println(j.data);
+        for (Element j : pqHeap.getHeap()) {
+            System.out.println(j.key + " " + j.data);
         }
     }
 }
