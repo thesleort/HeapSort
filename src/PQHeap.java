@@ -73,21 +73,21 @@ public class PQHeap implements EQ {
         return max;
     }
 
-    private void HeapIncreaseKey(ArrayList<Element> A, int i, Element key) {
-        if (key.key < A.get(i).key) {
+    private void HeapIncreaseKey(Element[] A, int i, Element key) {
+        if (key.key < A[i].key) {
             System.out.println("New key is smaller than current key");
         } else {
-            A.set(i, new Element(key.key, A.get(i).data));
-            while (i > 0 && A.get(i / 2).key < A.get(i).key) {
-                Exchange(A.get(i).key, A.get(i / 2).key);
-                i = A.get(i / 2).key;
+            A[i] = new Element(key.key, A[i].data);
+            while (i > 0 && A[i / 2].key < A[i].key) {
+                Exchange(A[i].key, A[i / 2].key);
+                i = A[i / 2].key;
             }
         }
     }
 
-    public void MaxHeapInsert(ArrayList<Element> A, Element key) {
+    public void MaxHeapInsert(Element[] A, Element key) {
         n++;
-        A.add(new Element(Integer.MIN_VALUE, null));
+        //A.add(new Element(Integer.MIN_VALUE, null));
         HeapIncreaseKey(A, n, key);
     }
 
