@@ -29,11 +29,11 @@ public class main {
          * While loop shows unsorted array:
          */
 
-        for (int j = 0; j < pqHeap.getHeap().size(); j++) {
-            System.out.println(pqHeap.getHeap().get(j).key + " " + pqHeap.getHeap().get(j).data);
+        for (int j = 0; j < pqHeap.getHeap().length; j++) {
+            System.out.println(pqHeap.getHeap()[j].key + " " + pqHeap.getHeap()[j].data);
         }
         pqHeap.Sort();
-        System.out.println("----------------------------");
+        System.out.println("\n----------------------------");
         /**
          * While loop shows sorted array:
          */

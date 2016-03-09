@@ -8,41 +8,41 @@ import java.util.stream.IntStream;
  */
 public class PQHeap implements EQ {
 
-    private static ArrayList<Element> A;
+    private static Element[] A;
     private static int n;
     private static int left;
     private static int right;
     private static int largest;
 
     public PQHeap(int maxElms) {
-        A = new ArrayList<>(maxElms);
+        A = new Element[maxElms];
     }
 
-    public void HeapSort(ArrayList<Element> A) {
+    public void HeapSort(Element[] A) {
         BuildMaxHeap(A);
-        for(int i = n; i > 1; i--) {
+        for(int i = n; i >= 1; i--) {
             Exchange(0,i);
             n--;
             MaxHeapify(A,0);
         }
     }
 
-    private void BuildMaxHeap(ArrayList<Element> A) {
-        n = A.size()-1;
-        for(int i = (A.size())/2; i > 0; i--) {
+    private void BuildMaxHeap(Element[] A) {
+        n = A.length-1;
+        for(int i = n/2; i >= 0; i--) {
             MaxHeapify(A,i);
         }
     }
 
-    private void MaxHeapify(ArrayList<Element> A, int i) {
+    private void MaxHeapify(Element[] A, int i) {
         left = 2 * i;
         right = 2 * i + 1;
-        if (left <= n && A.get(left).key > A.get(i).key) {
+        if (left <= n && A[left].key > A[i].key) {
             largest = left;
         } else {
             largest = i;
         }
-        if (right <= n && A.get(right).key > A.get(largest).key) {
+        if (right <= n && A[right].key > A[largest].key) {
             largest = right;
         }
         if (largest != i) {
@@ -52,21 +52,22 @@ public class PQHeap implements EQ {
     }
 
     private void Exchange(int key, int key1) {
-        Element temp = A.get(key);
-        A.set(key,A.get(key1));
-        A.set(key1, temp);
-        System.out.println("\n\nExchanging " + A.get(key).key + " with " + A.get(key1).key);
-        for(int i = 0; i < A.size(); i++) {
-            System.out.print(A.get(i).key + " ");
+        Element temp = A[key];
+        A[key] = A[key1];
+        A[key1] = temp;
+
+        System.out.println("\n\nExchanging " + A[key].key + " with " + A[key1].key);
+        for(int i = 0; i < A.length; i++) {
+            System.out.print(A[i].key + " ");
         }
     }
 
-    public int HeapExtractMax(ArrayList<Element> A) throws Exception {
+    public int HeapExtractMax(Element[] A) throws Exception {
         if (n < 0) {
             throw HeapUnderFlowException();
         }
-        int max = A.get(0).key;
-        A.set(0, A.get(A.size() - 1));
+        int max = A[0].key;
+        A[0] = A[n];
         n--;
         MaxHeapify(A, 0);
         return max;
@@ -107,10 +108,13 @@ public class PQHeap implements EQ {
     @Override
     public void insert(Element e) {
         n++;
-        A.add(e);
+        Element[] temp = A.clone();
+        A = new Element[A.length+1];
+        System.arraycopy(temp,0,A,0,temp.length);
+        A[A.length-1] = e;
     }
 
-    public ArrayList<Element> getHeap() {
+    public Element[] getHeap() {
         return A;
     }
 }
