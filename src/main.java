@@ -18,6 +18,9 @@ public class main {
             e.printStackTrace();
         }
         int i = 0;
+        /**
+         * While loop inserts elements in the heap.
+         */
         if (sc != null) {
             while (sc.hasNext()) {
                 int num = sc.nextInt();
@@ -25,10 +28,10 @@ public class main {
                 i++;
             }
         }
+
         /**
          * While loop shows unsorted array:
          */
-
         for (int j = 0; j < pqHeap.getHeap().length; j++) {
             System.out.println(pqHeap.getHeap()[j].key + " " + pqHeap.getHeap()[j].data);
         }
