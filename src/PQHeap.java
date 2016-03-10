@@ -1,6 +1,8 @@
 
 /**
- * Created by trpet15 - Troels Blicher Petersen <troels@newtec.dk> on 09-Mar-16.
+ *
+ * Created by Mark jervelund          <Mark@jervelund.com>  <Mjerv15>
+ *          & Troels Blicher Petersen <troels@newtec.dk>    <trpet15> on 09-Mar-16.
  */
 public class PQHeap implements EQ {
 
@@ -32,7 +34,6 @@ public class PQHeap implements EQ {
             Exchange(0, i);
             n--;
             MinHeapify(A, 0);
-//            System.out.println("n _" + n);
         }
     }
 
@@ -57,7 +58,7 @@ public class PQHeap implements EQ {
      */
     private void MinHeapify(Element[] A, int i) {
         left = 2 * i;
-        right = ( 2 * i ) + 1;
+        right = (2 * i) + 1;
         if (left <= n && A[left].key > A[i].key) {
             largest = left;
         } else {
@@ -95,16 +96,6 @@ public class PQHeap implements EQ {
      *                   <p>
      *                   -This should be reimplemented in the @Override methods instead.
      */
-    public Element HeapExtractMax(Element[] A) throws Exception {
-        if (n < 0) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        Element max = A[0];
-        A[0] = A[n];
-        n--;
-        MinHeapify(A, 0);
-        return max;
-    }
 
     /**
      * Inserts an element in array A.
@@ -114,43 +105,34 @@ public class PQHeap implements EQ {
      * @param key The element to be inserted.
      */
     private void HeapIncreaseKey(Element[] A, int i, Element key) {
-        if (key.key < A[i].key) {
-            System.out.println("New key is smaller than current key");
-        } else {
+        if (key.key >= A[i].key) {
             A[i] = new Element(key.key, A[i].data);
             while (i > 0 && A[i / 2].key > A[i].key) {
                 Exchange(i, i / 2);
                 i = i / 2;
-            }
         }
-    }
-
-    public void MaxHeapInsert(Element[] A, Element key) {
-        n++;
-        //A.add(new Element(Integer.MIN_VALUE, null));
-        HeapIncreaseKey(A, n, key);
+        }
     }
 
     /**
      * Simple call to sort the heap from outside of this class.
      */
     public void Sort() {
-        //System.out.println("N = " + n);
         HeapSort(A);
     }
 
     @Override
     public Element extractMin() {
-        n = A.length-1;
+        n = A.length - 1;
         if (n < 0) {
-            throw new ArrayIndexOutOfBoundsException ();
+            throw new ArrayIndexOutOfBoundsException();
         }
         Element max = A[0];
         A[0] = A[n];
         MinHeapify(A, 0);
         Element[] temp = A.clone();
         A = new Element[A.length - 1];
-        System.arraycopy(temp, 1, A, 0, temp.length-1);
+        System.arraycopy(temp, 1, A, 0, temp.length - 1);
         return max;
     }
 
@@ -161,14 +143,14 @@ public class PQHeap implements EQ {
         A = new Element[A.length + 1];
         System.arraycopy(temp, 0, A, 0, temp.length);
         A[A.length - 1] = e;
-        HeapIncreaseKey(A,n-1,e);
+        HeapIncreaseKey(A, n - 1, e);
     }
 
     /**
      * Method to return the heap.
      *
      * @return Retuns the heap for outside usage.
-     * <p>
+     * <p/>
      * CAUTION: This returns the current heap and thus this
      * heap is only sorted if the method Sort() has been
      * called beforehand.
