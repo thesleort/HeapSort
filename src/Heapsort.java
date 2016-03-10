@@ -34,20 +34,27 @@ public class Heapsort {
             System.out.println(pqHeap.getHeap()[j].key);
         }
         pqHeap.Sort();
-        System.out.println("SORT ----------------------------");
+        System.out.println("------------------------Sort----------------------------");
         for(int e = 0;e < pqHeap.getHeap().length; e++) {
-            System.out.print(pqHeap.getHeap()[e].key);
+            System.out.print(pqHeap.getHeap()[e].key+" ");
         }
+        System.out.println();
         /**
          * While loop shows sorted array:
          */
-        System.out.println("------------------------------------------------");
+        System.out.println("------------------------Extract------------------------");
         while(true) {
-            int key = pqHeap.extractMin().key;
-            System.out.print(key);
-            if (key == 0) {
+            try {
+                int key = pqHeap.extractMin().key;
+                System.out.print(key + " ");
+//                if (key == 0) {
+//                    break;
+//                }
+            }catch (ArrayIndexOutOfBoundsException e){
                 break;
             }
+
+
         }
         System.out.println();
         System.out.println();
