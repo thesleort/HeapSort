@@ -1,31 +1,29 @@
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.File;
-import java.io.PrintStream;
 
 /**
  * Created by Mark jervelund <Mark@jervelund.com>
  * & Troels Blicher Petersen <troels@newtec.dk>
  */
-public class main {
+public class Heapsort {
     public static void main(String[] args) {
         PQHeap pqHeap = new PQHeap(0);
-        File file = new File("testnumbers");
         Scanner sc = null;
         try {
+            File file = new File("testnumbers");
             sc = new Scanner(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        int i = 0;
+
         /**
          * While loop inserts elements in the heap.
          */
         if (sc != null) {
             while (sc.hasNext()) {
                 int num = sc.nextInt();
-                pqHeap.insert(new Element(num, num));
-                i++;
+                pqHeap.insert(new Element(num, null));
             }
         }
 
@@ -33,15 +31,25 @@ public class main {
          * While loop shows unsorted array:
          */
         for (int j = 0; j < pqHeap.getHeap().length; j++) {
-            System.out.println(pqHeap.getHeap()[j].key + " " + pqHeap.getHeap()[j].data);
+            System.out.println(pqHeap.getHeap()[j].key);
         }
         pqHeap.Sort();
-        System.out.println("\n----------------------------");
+        System.out.println("SORT ----------------------------");
+        for(int e = 0;e < pqHeap.getHeap().length; e++) {
+            System.out.println(pqHeap.getHeap()[e].key);
+        }
         /**
          * While loop shows sorted array:
          */
-        for (Element j : pqHeap.getHeap()) {
-            System.out.println(j.key + " " + j.data);
+        System.out.println("------------------------------------------------");
+        while(true) {
+            int key = pqHeap.extractMin().key;
+            System.out.println(key);
+            if (key == 0) {
+                break;
+            }
         }
+        System.out.println("length "+pqHeap.getHeap().length);
+
     }
 }

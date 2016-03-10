@@ -1,7 +1,7 @@
 import java.util.stream.IntStream;
 
-public class HeapSort {
-    public static void main(int A[]) {
+public class Heapsort {
+    public static void Heapsort(int A[]) {
         System.out.println("CR4P");
     }
 
