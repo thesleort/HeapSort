@@ -1,44 +1,72 @@
-\RequirePackage[l2tabu, orthodox]{nag}
-\documentclass[a4paper,10pt]{article}
-\usepackage{amsmath}
-\usepackage[a4paper]{geometry}
-\usepackage{graphicx}
+%Template by Mark Jervelund - D1 - 2015 - mjerv15@student.sdu.dk
+
+\documentclass[a4paper,10pt,titlepage]{report}
+
 \usepackage[utf8]{inputenc}
-\usepackage{listings}
-\usepackage{multirow}
-\usepackage[boxed]{algorithm2e}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[document]{ragged2e}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{datenumber}
+\usepackage{venndiagram}
+\usepackage{chngcntr}
+\setdatetoday
+\addtocounter{datenumber}{0} %date for diliverry standard is today
+\setdatebynumber{\thedatenumber}
+\date{}
+\setcounter{secnumdepth}{0}
+\pagestyle{fancy}
+\fancyhf{}
 
+\newcommand{\Z}{\mathbb{Z}}
+\counterwithin*{equation}{section}
 
-\renewcommand{\thesubsubsection}{\alph{subsubsection}}
-
-\title{Heapsort}
-\author{}
-\date{\today}
+\lhead{Course \(Course number\)}
+\rhead{Exam nr: number}
+\rfoot{Page  \thepage \, of \pageref{LastPage}}
 
 
 \begin{document}
+\begin{titlepage}
+\centering
+    \vspace*{9\baselineskip}
+    \huge
+    \bfseries
+    Heapsort \\
 
-\maketitle
-\pagebreak
+    \normalfont
+	\huge
+    Course \(Course number\)  \\ [4\baselineskip]
+    \normalfont
+	\includegraphics[scale=0.2]{SDU_logo}
+    \vfill\
+    \vspace{5mm}
+    IMADA \\
+    %\vspace{5mm} Instructor \\
+    %Uffe Thorsen - math
+    %Kristine Vitting Klinkby Knudsen - Datalogi
+    %Martin Østergaard Villumsen - prog
+    \vspace{5mm}
+    \textbf{\datedate}  \bf{} \\[2\baselineskip]
+\end{titlepage}
+
+\renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
 \tableofcontents
-\pagebreak
+
+\newpage
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
+\section{Opgave 1}
+
 test
-\section{Assignment X}
-
-\subsection{Subsection 1}
-
-\subsubsection{Subsubsection}
-
-
-\subsection{Subsection 2}
-
-
-
-\subsection{Subsection 3}
-
-
-
-\subsection{Subsection 4}
-
 
 \end{document}
