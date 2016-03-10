@@ -32,6 +32,7 @@ public class PQHeap implements EQ {
             Exchange(0, i);
             n--;
             MinHeapify(A, 0);
+            System.out.println("n _" + n);
         }
     }
 
@@ -134,19 +135,22 @@ public class PQHeap implements EQ {
      * Simple call to sort the heap from outside of this class.
      */
     public void Sort() {
+        System.out.println("N = " + n);
         HeapSort(A);
     }
 
     @Override
     public Element extractMin() {
-        System.out.println(n);
+        n = A.length-1;
         if (n < 0) {
             throw new ArrayIndexOutOfBoundsException();
         }
         Element max = A[0];
         A[0] = A[n];
-        n--;
         MinHeapify(A, 0);
+        Element[] temp = A.clone();
+        A = new Element[A.length - 1];
+        System.arraycopy(temp, 1, A, 0, temp.length-1);
         return max;
     }
 

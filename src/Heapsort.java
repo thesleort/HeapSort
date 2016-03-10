@@ -6,7 +6,7 @@ import java.io.File;
  * Created by Mark jervelund <Mark@jervelund.com>
  * & Troels Blicher Petersen <troels@newtec.dk>
  */
-public class main {
+public class Heapsort {
     public static void main(String[] args) {
         PQHeap pqHeap = new PQHeap(0);
         Scanner sc = null;
@@ -23,7 +23,7 @@ public class main {
         if (sc != null) {
             while (sc.hasNext()) {
                 int num = sc.nextInt();
-                pqHeap.insert(new Element(num, num));
+                pqHeap.insert(new Element(num, null));
             }
         }
 
@@ -42,8 +42,12 @@ public class main {
          * While loop shows sorted array:
          */
         System.out.println("------------------------------------------------");
-        for(int e = 0;e < pqHeap.getHeap().length; e++) {
-            System.out.println(pqHeap.extractMin().key);
+        while(true) {
+            int key = pqHeap.extractMin().key;
+            System.out.println(key);
+            if (key == 0) {
+                break;
+            }
         }
         System.out.println("length "+pqHeap.getHeap().length);
 
