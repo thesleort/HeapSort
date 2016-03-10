@@ -3,22 +3,23 @@ import java.util.Scanner;
 import java.io.File;
 
 /**
- * Created by Mark jervelund <Mark@jervelund.com>
- * & Troels Blicher Petersen <troels@newtec.dk>
+ * Created by Mark jervelund          <Mark@jervelund.com>  <Mjerv15>
+ *          & Troels Blicher Petersen <troels@newtec.dk>    <trpet15>
  */
 public class Heapsort {
     public static void main(String[] args) {
-        PQHeap pqHeap = new PQHeap(0);
-        Scanner sc = null;
-        try {
-            File file = new File("testnumbers");
-            sc = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
 
         /**
-         * While loop inserts elements in the heap.
+         * makers a new heap?
+         */
+        PQHeap pqHeap = new PQHeap(0);
+        /**
+         * scans incoming data.
+         */
+        Scanner sc = new Scanner(System.in);
+
+        /**
+         * While loop inserts elements in the heap from the scanner.
          */
         if (sc != null) {
             while (sc.hasNext()) {
@@ -26,38 +27,19 @@ public class Heapsort {
                 pqHeap.insert(new Element(num, null));
             }
         }
-
-        /**
-         * While loop shows unsorted array:
-         */
-        for (int j = 0; j < pqHeap.getHeap().length; j++) {
-            System.out.println(pqHeap.getHeap()[j].key);
-        }
+/**
+ * Calls the function to sort the Heaptree.
+ */
         pqHeap.Sort();
-        System.out.println("SORT ----------------------------");
-        for(int e = 0;e < pqHeap.getHeap().length; e++) {
-            System.out.print(pqHeap.getHeap()[e].key+" ");
-        }
-        /**
-         * While loop shows sorted array:
-         */
-        System.out.println("------------------------Extract------------------------");
-        while(true) {
+
+        while (true) {
             try {
                 int key = pqHeap.extractMin().key;
                 System.out.print(key + " ");
-//                if (key == 0) {
-//                    break;
-//                }
-            }catch (ArrayIndexOutOfBoundsException e){
+            } catch (ArrayIndexOutOfBoundsException e) {
                 break;
             }
-
-
         }
-        System.out.println();
-        System.out.println();
-        System.out.println("length "+pqHeap.getHeap().length);
 
     }
 }
