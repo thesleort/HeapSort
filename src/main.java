@@ -1,7 +1,6 @@
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.File;
-import java.io.PrintStream;
 
 /**
  * Created by Mark jervelund <Mark@jervelund.com>
@@ -10,9 +9,9 @@ import java.io.PrintStream;
 public class main {
     public static void main(String[] args) {
         PQHeap pqHeap = new PQHeap(0);
-        File file = new File("testnumbers");
         Scanner sc = null;
         try {
+            File file = new File("testnumbers");
             sc = new Scanner(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

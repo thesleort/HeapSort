@@ -1,6 +1,6 @@
 
 /**
- * Created by Troels Blicher Petersen on 09-Mar-16.
+ * Created by trpet15 - Troels Blicher Petersen <troels@newtec.dk> on 09-Mar-16.
  */
 public class PQHeap implements EQ {
 
@@ -12,6 +12,7 @@ public class PQHeap implements EQ {
 
     /**
      * Creates a heap of without any elements.
+     *
      * @param maxElms The size of the heap.
      */
     public PQHeap(int maxElms) {
@@ -55,7 +56,7 @@ public class PQHeap implements EQ {
      */
     private void MaxHeapify(Element[] A, int i) {
         left = 2 * i;
-        right = 2 * i + 1;
+        right = ( 2 * i ) + 1;
         if (left <= n && A[left].key > A[i].key) {
             largest = left;
         } else {
@@ -72,7 +73,8 @@ public class PQHeap implements EQ {
 
     /**
      * Swaps two elements in the global element-array.
-     * @param key Position of the first element.
+     *
+     * @param key  Position of the first element.
      * @param key1 Position of the second element.
      */
     private void Exchange(int key, int key1) {
@@ -88,9 +90,9 @@ public class PQHeap implements EQ {
      * @param A An array holding the elements of the heap.
      * @return The maximum element of the heap.
      * @throws Exception if there is no elements to be extracted from
-     * the array.
-     *
-     * -This should be reimplemented in the @Override methods instead.
+     *                   the array.
+     *                   <p>
+     *                   -This should be reimplemented in the @Override methods instead.
      */
     public int HeapExtractMax(Element[] A) throws Exception {
         if (n < 0) {
@@ -106,8 +108,8 @@ public class PQHeap implements EQ {
     /**
      * Inserts an element in array A.
      *
-     * @param A An array holding the elements of the heap.
-     * @param i Where to insert the new element.
+     * @param A   An array holding the elements of the heap.
+     * @param i   Where to insert the new element.
      * @param key The element to be inserted.
      */
     private void HeapIncreaseKey(Element[] A, int i, Element key) {
@@ -153,7 +155,7 @@ public class PQHeap implements EQ {
      * Method to return the heap.
      *
      * @return Retuns the heap for outside usage.
-     *
+     * <p>
      * CAUTION: This returns the current heap and thus this
      * heap is only sorted if the method Sort() has been
      * called beforehand.
