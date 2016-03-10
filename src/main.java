@@ -17,7 +17,7 @@ public class main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        int i = 0;
+
         /**
          * While loop inserts elements in the heap.
          */
@@ -25,7 +25,6 @@ public class main {
             while (sc.hasNext()) {
                 int num = sc.nextInt();
                 pqHeap.insert(new Element(num, num));
-                i++;
             }
         }
 

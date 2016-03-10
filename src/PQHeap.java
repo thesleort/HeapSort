@@ -10,6 +10,10 @@ public class PQHeap implements EQ {
     private static int right;
     private static int largest;
 
+    /**
+     * Creates a heap of without any elements.
+     * @param maxElms The size of the heap.
+     */
     public PQHeap(int maxElms) {
         A = new Element[maxElms];
     }
@@ -90,7 +94,7 @@ public class PQHeap implements EQ {
      */
     public int HeapExtractMax(Element[] A) throws Exception {
         if (n < 0) {
-            throw HeapUnderFlowException();
+            throw new ArrayIndexOutOfBoundsException();
         }
         int max = A[0].key;
         A[0] = A[n];
@@ -122,11 +126,6 @@ public class PQHeap implements EQ {
         n++;
         //A.add(new Element(Integer.MIN_VALUE, null));
         HeapIncreaseKey(A, n, key);
-    }
-
-    private Exception HeapUnderFlowException() {
-        System.out.println("n is smaller than 0");
-        return null;
     }
 
     /**
