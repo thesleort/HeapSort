@@ -27,11 +27,11 @@ public class PQHeap implements EQ {
      * @param A An array holding the elements of the heap.
      */
     public void HeapSort(Element[] A) {
-        BuildMaxHeap(A);
+        BuildMinHeap(A);
         for (int i = n; i >= 1; i--) {
             Exchange(0, i);
             n--;
-            MaxHeapify(A, 0);
+            MinHeapify(A, 0);
         }
     }
 
@@ -41,10 +41,10 @@ public class PQHeap implements EQ {
      *
      * @param A An array holding the elements of the heap.
      */
-    private void BuildMaxHeap(Element[] A) {
+    private void BuildMinHeap(Element[] A) {
         n = A.length - 1;
         for (int i = n / 2; i >= 0; i--) {
-            MaxHeapify(A, i);
+            MinHeapify(A, i);
         }
     }
 
@@ -54,7 +54,7 @@ public class PQHeap implements EQ {
      * @param A An array holding the elements of the heap.
      * @param i An integer telling where to do "work" in the heap.
      */
-    private void MaxHeapify(Element[] A, int i) {
+    private void MinHeapify(Element[] A, int i) {
         left = 2 * i;
         right = ( 2 * i ) + 1;
         if (left <= n && A[left].key > A[i].key) {
@@ -67,7 +67,7 @@ public class PQHeap implements EQ {
         }
         if (largest != i) {
             Exchange(i, largest);
-            MaxHeapify(A, largest);
+            MinHeapify(A, largest);
         }
     }
 
@@ -94,14 +94,14 @@ public class PQHeap implements EQ {
      *                   <p>
      *                   -This should be reimplemented in the @Override methods instead.
      */
-    public int HeapExtractMax(Element[] A) throws Exception {
+    public Element HeapExtractMax(Element[] A) throws Exception {
         if (n < 0) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        int max = A[0].key;
+        Element max = A[0];
         A[0] = A[n];
         n--;
-        MaxHeapify(A, 0);
+        MinHeapify(A, 0);
         return max;
     }
 
@@ -117,9 +117,9 @@ public class PQHeap implements EQ {
             System.out.println("New key is smaller than current key");
         } else {
             A[i] = new Element(key.key, A[i].data);
-            while (i > 0 && A[i / 2].key < A[i].key) {
-                Exchange(A[i].key, A[i / 2].key);
-                i = A[i / 2].key;
+            while (i > 0 && A[i / 2].key > A[i].key) {
+                Exchange(i, i / 2);
+                i = i / 2;
             }
         }
     }
@@ -139,7 +139,15 @@ public class PQHeap implements EQ {
 
     @Override
     public Element extractMin() {
-        return null;
+        System.out.println(n);
+        if (n < 0) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        Element max = A[0];
+        A[0] = A[n];
+        n--;
+        MinHeapify(A, 0);
+        return max;
     }
 
     @Override
@@ -149,6 +157,7 @@ public class PQHeap implements EQ {
         A = new Element[A.length + 1];
         System.arraycopy(temp, 0, A, 0, temp.length);
         A[A.length - 1] = e;
+        HeapIncreaseKey(A,n-1,e);
     }
 
     /**

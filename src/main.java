@@ -31,15 +31,21 @@ public class main {
          * While loop shows unsorted array:
          */
         for (int j = 0; j < pqHeap.getHeap().length; j++) {
-            System.out.println(pqHeap.getHeap()[j].key + " " + pqHeap.getHeap()[j].data);
+            System.out.println(pqHeap.getHeap()[j].key);
         }
         pqHeap.Sort();
-        System.out.println("\n----------------------------");
+        System.out.println("SORT ----------------------------");
+        for(int e = 0;e < pqHeap.getHeap().length; e++) {
+            System.out.println(pqHeap.getHeap()[e].key);
+        }
         /**
          * While loop shows sorted array:
          */
-        for (Element j : pqHeap.getHeap()) {
-            System.out.println(j.key + " " + j.data);
+        System.out.println("------------------------------------------------");
+        for(int e = 0;e < pqHeap.getHeap().length; e++) {
+            System.out.println(pqHeap.extractMin().key);
         }
+        System.out.println("length "+pqHeap.getHeap().length);
+
     }
 }
