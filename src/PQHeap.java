@@ -86,18 +86,6 @@ public class PQHeap implements EQ {
     }
 
     /**
-     * Takes the maximum element out of the heap. When doing so
-     * it afterwards returns this element.
-     *
-     * @param A An array holding the elements of the heap.
-     * @return The maximum element of the heap.
-     * @throws Exception if there is no elements to be extracted from
-     *                   the array.
-     *                   <p>
-     *                   -This should be reimplemented in the @Override methods instead.
-     */
-
-    /**
      * Inserts an element in array A.
      *
      * @param A   An array holding the elements of the heap.
@@ -121,6 +109,16 @@ public class PQHeap implements EQ {
         HeapSort(A);
     }
 
+    /**
+     * Takes the maximum element out of the heap. When doing so
+     * it afterwards returns this element.
+     *
+     * @return The maximum element of the heap.
+     * @throws Exception if there is no elements to be extracted from
+     *                   the array.
+     *                   <p>
+     *                   -This should be reimplemented in the @Override methods instead.
+     */
     @Override
     public Element extractMin() {
         n = A.length - 1;
