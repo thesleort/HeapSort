@@ -42,14 +42,18 @@ public class Heapsort {
          * While loop shows sorted array:
          */
         System.out.println("------------------------------------------------");
-        while(true) {
-            int key = pqHeap.extractMin().key;
-            System.out.println(key);
-            if (key == 0) {
-                break;
+        try {
+            while (true) {
+                int key = pqHeap.extractMin().key;
+                System.out.println(key);
+                if (key == 0) {
+                    break;
+                }
             }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("length "+pqHeap.getHeap().length);
         }
-        System.out.println("length "+pqHeap.getHeap().length);
+
 
     }
 }
