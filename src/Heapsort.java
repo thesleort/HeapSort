@@ -1,6 +1,4 @@
-import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.io.File;
 
 /**
  * Created by Mark jervelund          <Mark@jervelund.com>  <Mjerv15>
@@ -10,9 +8,10 @@ public class Heapsort {
     public static void main(String[] args) {
 
         /**
-         * makers a new heap?
+         * Creates a new heap.
          */
         PQHeap pqHeap = new PQHeap(0);
+
         /**
          * scans incoming data.
          */
@@ -27,9 +26,10 @@ public class Heapsort {
                 pqHeap.insert(new Element(num, null));
             }
         }
-/**
- * Calls the function to sort the Heaptree.
- */
+
+        /**
+         * Calls the function to sort the Heaptree.
+         */
         pqHeap.Sort();
 
         while (true) {
@@ -40,6 +40,5 @@ public class Heapsort {
                 break;
             }
         }
-
     }
 }
