@@ -116,8 +116,6 @@ public class PQHeap implements EQ {
      * @return The maximum element of the heap.
      * @throws Exception if there is no elements to be extracted from
      *                   the array.
-     *                   <p>
-     *                   -This should be reimplemented in the @Override methods instead.
      */
     @Override
     public Element extractMin() {
@@ -134,6 +132,13 @@ public class PQHeap implements EQ {
         return max;
     }
 
+    /**
+     * Inserts an element in the heap and increases the heap size.
+     * It uses HeapIncreaseKey to insert the element at an allowed
+     * position.
+     *
+     * @param e The element to be inserted.
+     */
     @Override
     public void insert(Element e) {
         n++;

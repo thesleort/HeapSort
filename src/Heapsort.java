@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 /**
  * Created by Mark jervelund          <Mark@jervelund.com>  <Mjerv15>
- * & Troels Blicher Petersen <troels@newtec.dk>    <trpet15>
+ *          & Troels Blicher Petersen <troels@newtec.dk>    <trpet15>
  */
 public class Heapsort {
     public static void main(String[] args) {
