@@ -11,14 +11,11 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-\usepackage[document]{ragged2e}
-\usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{datenumber}
 \usepackage{venndiagram}
 \usepackage{chngcntr}
+\usepackage{listings}
 \setdatetoday
 \addtocounter{datenumber}{0} %date for diliverry standard is today
 \setdatebynumber{\thedatenumber}
@@ -30,43 +27,42 @@
 \newcommand{\Z}{\mathbb{Z}}
 \counterwithin*{equation}{section}
 
-\lhead{Course \(Course number\)}
-\rhead{Exam nr: number}
+\lhead{Course \(Algoritmer\) \(og\) \(Datastrukturer\) - \(DM507\)}
+%\rhead{Exam nr: number}
 \rfoot{Page  \thepage \, of \pageref{LastPage}}
 
 
 \begin{document}
 \begin{titlepage}
 \centering
-    \vspace*{9\baselineskip}
+    \vspace*{2\baselineskip}
     \huge
     \bfseries
     Heapsort \\
 
     \normalfont
 	\huge
-    Course \(Course number\)  \\ [4\baselineskip]
+    Course \(Algoritmer\) \(og\) \(Datastrukturer\) \\ \( DM507\)  \\ [3\baselineskip]
     \normalfont
-	\includegraphics[scale=0.2]{SDU_logo}
+	\includegraphics[scale=0.2]{SDU_logo}\\ 
+	Troels Blicher Petersen - trpet15 - troels@newtec.dk\\
+    Mark Jervelund - mjerv15 - mark@jervelund.com \\
     \vfill\
     \vspace{5mm}
     IMADA \\
-    %\vspace{5mm} Instructor \\
-    %Uffe Thorsen - math
-    %Kristine Vitting Klinkby Knudsen - Datalogi
-    %Martin Østergaard Villumsen - prog
     \vspace{5mm}
     \textbf{\datedate}  \bf{} \\[2\baselineskip]
 \end{titlepage}
-
+\newpage
 \renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
 \tableofcontents
 
 \newpage
 \setcounter{page}{1}
 \renewcommand{\thepage}{\arabic{page}}
-\section{Opgave 1}
-
-test
+\section{Heapsort.java}
+\lstinputlisting[language=Java]{Heapsort.java}
+\section{PQHeap.java}
+\lstinputlisting[language=Java]{PQHeap.java}
 
 \end{document}
