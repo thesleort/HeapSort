@@ -12,7 +12,7 @@ public class Heapsort {
         /**
          * Creates a new heap.
          */
-        PQHeap pqHeap = new PQHeap(0);
+        PQHeap pqHeap = new PQHeap();
 
         /**
          * scans incoming data.
@@ -28,11 +28,6 @@ public class Heapsort {
                 pqHeap.insert(new Element(num, null));
             }
         }
-
-        /**
-         * Calls the function to sort the Heaptree.
-         */
-        pqHeap.Sort();
 
         while (true) {
             try {
