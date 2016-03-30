@@ -7,7 +7,7 @@ import java.util.Scanner;
  *          & Troels Blicher Petersen <troels@newtec.dk>    <trpet15>
  */
 public class Heapsort {
-    public static void main(String[] args) {
+    public void Heapsort() {
 
         /**
          * Creates a new heap.
