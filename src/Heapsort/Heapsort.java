@@ -29,11 +29,6 @@ public class Heapsort {
             }
         }
 
-        /**
-         * Calls the function to sort the Heaptree.
-         */
-        pqHeap.Sort();
-
         while (true) {
             try {
                 int key = pqHeap.extractMin().key;

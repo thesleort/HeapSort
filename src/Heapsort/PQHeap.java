@@ -60,12 +60,12 @@ public class PQHeap implements EQ {
     private void MinHeapify(ArrayList<Element> A, int i) {
         left = 2 * i;
         right = (2 * i) + 1;
-        if (left <= n && A.get(left).key > A.get(i).key) {
+        if (left <= n && A.get(left).key < A.get(i).key) {
             smallest = left;
         } else {
             smallest = i;
         }
-        if (right <= n && A.get(right).key > A.get(smallest).key) {
+        if (right <= n && A.get(right).key < A.get(smallest).key) {
             smallest = right;
         }
         if (smallest != i) {
@@ -99,15 +99,8 @@ public class PQHeap implements EQ {
             while (i > 0 && A.get(i / 2).key > A.get(i).key) {
                 Exchange(i, i / 2);
                 i = i / 2;
+            }
         }
-        }
-    }
-
-    /**
-     * Simple call to sort the heap from outside of this class.
-     */
-    public void Sort() {
-        HeapSort(A);
     }
 
     /**
