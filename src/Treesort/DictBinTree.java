@@ -42,7 +42,7 @@ public class DictBinTree implements Dict {
 
     @Override
     public void insert(int z) {
-        Knot k;
+        Knot k = null;
         k.key = z;
         Knot y = null;
         Knot x = Tree;
@@ -66,20 +66,23 @@ public class DictBinTree implements Dict {
     }
 
 
-//    ITERATIVE-TREE-SEARCH.x; k/
+    //    ITERATIVE-TREE-SEARCH.x; k/
 //    while x ¤ NIL and k ¤ x:key
 //      if k < x:key
 //          x = x:left
 //      else x = x:right
 //          return x
         @Override
-        public boolean search (Knot x, int k){
+        public boolean search(Knot x, int k){
             while (x != null && k != x.key){
                 if (k == x.key){return true;
             }else if (k < x.key){x = x.leftchild;}
                 else {x = x.rightchild;}
+
+        }
             return false;
         }
+
 
 
 
@@ -91,12 +94,11 @@ public class DictBinTree implements Dict {
 //    4 INORDER-TREE-WALK.x:right/
 
 
-    @Override
-    public int[] orderedTraversal() {
-                if x
-            }
-        return new int[0];
-    }
+//    @Override
+//    public int[] orderedTraversal() {
+//                            }
+//
+//    }
 
 
 }
