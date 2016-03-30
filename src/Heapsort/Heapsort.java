@@ -12,7 +12,7 @@ public class Heapsort {
         /**
          * Creates a new heap.
          */
-        PQHeap pqHeap = new PQHeap(0);
+        PQHeap pqHeap = new PQHeap();
 
         /**
          * scans incoming data.
