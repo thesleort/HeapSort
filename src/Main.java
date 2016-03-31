@@ -6,6 +6,6 @@ import Heapsort.Heapsort;
 public class Main {
     public static void main(String[] args) {
         Heapsort hs = new Heapsort();
-        hs.Heapsort();
+        hs.main(args);
     }
 }
