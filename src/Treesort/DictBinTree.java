@@ -1,33 +1,16 @@
 package Treesort;
 
 
-import sun.reflect.generics.tree.Tree;
-
-import java.util.ArrayList;
-
 /**
  * Created by mark- on 30-Mar-16.
  */
 public class DictBinTree implements Dict {
 
     Knot Tree = new Knot(0);
-
-    public int right(int k) {
-        return (k * 2 + 1);
-    }
-
-    private int left(int k) {
-        return (k * 2);
-    }
-
-    private int parent(int k) {
-        return (k / 2);
-
-    }
     // TREE-INSERT(T,z)
 // y = NIL
-// x = T.root
-// while x != NIL
+// x = T.root((
+// while x != NIL[[[[[]]]]
 //    y = x
 //    if z.key < x.key
 //        x = x.left
@@ -65,15 +48,6 @@ public class DictBinTree implements Dict {
         }
     }
 
-    @Override
-    public int[] orderedTraversal() {
-        return new int[0];
-    }
-
-    @Override
-    public boolean search(int k) {
-        return false;
-    }
 
 
     //    ITERATIVE-TREE-SEARCH.x; k/
@@ -83,7 +57,8 @@ public class DictBinTree implements Dict {
 //      else x = x:right
 //          return x
         @Override
-        public boolean search(Knot x, int k){
+        public boolean search(int k){
+           Knot  x = Tree;
             while (x != null && k != x.key){
                 if (k == x.key){return true;
             }else if (k < x.key){x = x.leftchild;}
@@ -93,10 +68,6 @@ public class DictBinTree implements Dict {
             return false;
         }
 
-
-
-
-
 //    INORDER-TREE-WALK.x/
 //     if x ¤ NIL
 //    2 INORDER-TREE-WALK.x: left/
@@ -104,13 +75,22 @@ public class DictBinTree implements Dict {
 //    4 INORDER-TREE-WALK.x:right/
 
 
-//    @Override
-//    public int[] orderedTraversal() {
-//                            }
-//
-//    }
+    @Override
+    public int[] orderedTraversal() {
+        return inordertreewalk(Tree);
 
+    }
+// #ghetto fix
+    public int[] inordertreewalk(Knot x) {
+        if (x != null){
+            inordertreewalk(x.leftchild);
+            System.out.println(x.key);
+            inordertreewalk(x.rightchild);
 
+        }
+
+        return new int[0];
+    }
 }
 
 
