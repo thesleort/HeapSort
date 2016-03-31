@@ -1,4 +1,4 @@
-package Heapsort; /**
+/**
  * Created by trpet15 - Troels Blicher Petersen <troels@newtec.dk> on 3/4/16.
  */
 

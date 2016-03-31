@@ -1,4 +1,3 @@
-package Heapsort;
 
 /**
  * @implSpec extractMin() is supposed to extract the
