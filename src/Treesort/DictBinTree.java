@@ -65,6 +65,16 @@ public class DictBinTree implements Dict {
         }
     }
 
+    @Override
+    public int[] orderedTraversal() {
+        return new int[0];
+    }
+
+    @Override
+    public boolean search(int k) {
+        return false;
+    }
+
 
     //    ITERATIVE-TREE-SEARCH.x; k/
 //    while x ¤ NIL and k ¤ x:key

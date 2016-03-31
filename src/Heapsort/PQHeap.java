@@ -9,11 +9,11 @@ import java.util.ArrayList;
  */
 public class PQHeap implements EQ {
 
-    private static ArrayList<Element> A;
-    private static int n;
-    private static int left;
-    private static int right;
-    private static int smallest;
+    private ArrayList<Element> A;
+    private int n;
+    private int left;
+    private int right;
+    private int smallest;
 
     /**
      * Creates a heap of without any elements.
@@ -23,43 +23,14 @@ public class PQHeap implements EQ {
     }
 
     /**
-     * The method that starts the sorting. It makes use of
-     * several other methods, which then again makes use
-     * of even more methods.
-     *
-     * @param A An array holding the elements of the heap.
-     */
-    public void HeapSort(ArrayList<Element> A) {
-        BuildMinHeap(A);
-        for (int i = n; i >= 1; i--) {
-            Exchange(0, i);
-            n--;
-            MinHeapify(A, 0);
-        }
-    }
-
-    /**
-     * Builds a heap and assigns a global variable n to the
-     * size of the heap.
-     *
-     * @param A An array holding the elements of the heap.
-     */
-    private void BuildMinHeap(ArrayList<Element> A) {
-        n = A.size() - 1;
-        for (int i = n / 2; i >= 0; i--) {
-            MinHeapify(A, i);
-        }
-    }
-
-    /**
      * Makes a min heap.
      *
      * @param A An array holding the elements of the heap.
      * @param i An integer telling where to do "work" in the heap.
      */
     private void MinHeapify(ArrayList<Element> A, int i) {
-        left = 2 * i;
-        right = (2 * i) + 1;
+        left = ((i+1)*2)-1;
+        right = (i+1) *2;
         if (left <= n && A.get(left).key < A.get(i).key) {
             smallest = left;
         } else {
@@ -77,13 +48,13 @@ public class PQHeap implements EQ {
     /**
      * Swaps two elements in the global element-array.
      *
-     * @param key  Position of the first element.
-     * @param key1 Position of the second element.
+     * @param index1  Position of the first element.
+     * @param index2 Position of the second element.
      */
-    private void Exchange(int key, int key1) {
-        Element temp = A.get(key);
-        A.set(key,A.get(key1));
-        A.set(key1,temp);
+    private void Exchange(int index1, int index2) {
+        Element temp = A.get(index1);
+        A.set(index1,A.get(index2));
+        A.set(index2,temp);
     }
 
     /**
