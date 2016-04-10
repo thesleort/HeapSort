@@ -11,20 +11,7 @@ import java.util.ArrayList;
 public class DictBinTree implements Dict {
 
     Knot Tree = new Knot(0);
-
-    public int right(int k) {
-        return (k * 2 + 1);
-    }
-
-    private int left(int k) {
-        return (k * 2);
-    }
-
-    private int parent(int k) {
-        return (k / 2);
-
-    }
-    // TREE-INSERT(T,z)
+// TREE-INSERT(T,z)
 // y = NIL
 // x = T.root
 // while x != NIL
@@ -41,39 +28,31 @@ public class DictBinTree implements Dict {
 
 
     @Override
-    public void insert(int z) {
-        Knot k = null;
-        k.key = z;
-        Knot y = null;
+    public void insert(int k) {
+        Knot z = new Knot(k);
+        Knot y = new Knot(k);
         Knot x = Tree;
-        while (x != null) {
+        while (x !=  null) {
+            //System.out.println("entering while loop");
             y = x;
-            if (k.key < x.key) {
+            if (z.key < x.key) {
                 x = x.leftchild;
             } else {
-                x = x.leftchild;
+                x = x.rightchild;
             }
-            k.parent = y;
+        }
+        z.parent = y;
 
-            if (y == null) {
-                Tree = k;
-            } else if (k.key < y.key) {
-                y.leftchild = k;
-            } else {
-                y.rightchild = k;
-            }
+        if (y == null) {
+            Tree = z;
+        } else if (z.key < y.key) {
+            y.leftchild = z;
+        } else {
+            y.rightchild = z;
         }
     }
 
-    @Override
-    public int[] orderedTraversal() {
-        return new int[0];
-    }
 
-    @Override
-    public boolean search(int k) {
-        return false;
-    }
 
 
     //    ITERATIVE-TREE-SEARCH.x; k/
@@ -82,28 +61,54 @@ public class DictBinTree implements Dict {
 //          x = x:left
 //      else x = x:right
 //          return x
-        @Override
-        public boolean search(Knot x, int k){
-            while (x != null && k != x.key){
-                if (k == x.key){return true;
-            }else if (k < x.key){x = x.leftchild;}
-                else {x = x.rightchild;}
+    @Override
+    public boolean search(int k) {
+        Knot x = Tree;
+        while (x != null && k != x.key) {
+            if (k == x.key) {
+                return true;
+            } else if (k < x.key) {
+                x = x.leftchild;
+            } else {
+                x = x.rightchild;
+            }
 
         }
-            return false;
-        }
+        return false;
+    }
 
 
-
-
-
-//    INORDER-TREE-WALK.x/
+    //    INORDER-TREE-WALK.x/
 //     if x ¤ NIL
 //    2 INORDER-TREE-WALK.x: left/
 //            3 print x:key
 //    4 INORDER-TREE-WALK.x:right/
 
+    @Override
+    public int[] orderedTraversal() {
 
+        ArrayList<Integer> order2 = new ArrayList();
+        order2 = recursivetranversal(Tree, order2);
+        int[] order = new int[order2.size()];
+        for (int i = 0; i < order2.size(); i++) {
+            order[i] = order2.get(i);
+            //System.out.println("adding " + order2.get(i) + " to return list");
+        }
+        return order;
+    }
+
+
+    public ArrayList recursivetranversal(Knot knot, ArrayList order) {
+        if (knot != null) {
+            order = recursivetranversal(knot.leftchild, order);
+            //System.out.println(knot.key);
+            order.add(knot.key);
+            order = recursivetranversal(knot.rightchild, order);
+
+        }
+        return order;
+
+    }
 //    @Override
 //    public int[] orderedTraversal() {
 //                            }

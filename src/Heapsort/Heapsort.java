@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Heapsort {
     public static void main(String[] args) {
-
+        System.out.println("Running Heapsort");
         /**
          * Creates a new heap.
          */
@@ -23,7 +23,7 @@ public class Heapsort {
          * While loop inserts elements in the heap from the scanner.
          */
         if (sc != null) {
-            while (sc.hasNext()) {
+            while (sc.hasNextInt()) {
                 int num = sc.nextInt();
                 pqHeap.insert(new Element(num, null));
             }
