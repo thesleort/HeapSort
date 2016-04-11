@@ -19,6 +19,7 @@ public class Knot {
         this.rightchild = null;
         this.parent =null;
     }
+
 }
 
 
