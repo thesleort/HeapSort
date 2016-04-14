@@ -1,7 +1,8 @@
 package Treesort;
 
 /**
- * Created by mark- on 30-Mar-16.
+ * Created by Troels Blicher Petersen <troels@newtec.dk>    <trpet15>
+ *          & Mark jervelund          <Mark@jervelund.com>  <Mjerv15> on 30-Mar-16.
  */
 public interface Dict {
     public void insert(int k);
@@ -10,11 +11,3 @@ public interface Dict {
 
     public boolean search(int k);
 }
-
-    //    ITERATIVE-TREE-SEARCH.x; k/
-//    while x ¤ NIL and k ¤ x:key
-//      if k < x:key
-//          x = x:left
-//      else x = x:right
-//          return x
-

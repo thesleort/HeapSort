@@ -1,39 +1,34 @@
 package Treesort;
 
-
-import sun.reflect.generics.tree.Tree;
-
 import java.util.ArrayList;
 
 /**
- * Created by mark- on 30-Mar-16.
+ * Created by Troels Blicher Petersen <troels@newtec.dk>    <trpet15>
+ * & Mark jervelund          <Mark@jervelund.com>  <Mjerv15> on 30-Mar-16.
  */
 public class DictBinTree implements Dict {
 
     Knot Tree = new Knot(0);
-// TREE-INSERT(T,z)
-// y = NIL
-// x = T.root
-// while x != NIL
-//    y = x
-//    if z.key < x.key
-//        x = x.left
-//    else x = x.right
-// z.p = y
-// if y == NIL
-//  T.root = z // tree T was empty
-//  elseif z.key < y.key
-//  y.left = z
-//   else y.right = z
 
-
+    /**
+     * Inserts an integer that acts as the key. It then
+     * moves down the tree starting from the root until
+     * it reaches a "child" that is null (no child is
+     * actually present).
+     * Afterwards it has to update the parent, so that
+     * the parent knows whether the new node/knot is the
+     * left child or the right child.
+     *
+     * @param k is the key for the node/knot. It is used
+     *          in the comparison when trailing down the
+     *          tree.
+     */
     @Override
     public void insert(int k) {
         Knot z = new Knot(k);
         Knot y = new Knot(k);
         Knot x = Tree;
-        while (x !=  null) {
-            //System.out.println("entering while loop");
+        while (x != null) {
             y = x;
             if (z.key < x.key) {
                 x = x.leftchild;
@@ -42,7 +37,6 @@ public class DictBinTree implements Dict {
             }
         }
         z.parent = y;
-
         if (y == null) {
             Tree = z;
         } else if (z.key < y.key) {
@@ -52,15 +46,21 @@ public class DictBinTree implements Dict {
         }
     }
 
-
-
-
-    //    ITERATIVE-TREE-SEARCH.x; k/
-//    while x ¤ NIL and k ¤ x:key
-//      if k < x:key
-//          x = x:left
-//      else x = x:right
-//          return x
+    /**
+     * Searches for a specified key and returns
+     * true or false based on whether the key
+     * exists or not.
+     * It is important to note that this search
+     * method is part of the interface where it
+     * is defined that it must return a boolean.
+     * In the textbook the search method returns
+     * the pointer of a node/knot instead.
+     *
+     * @param k is the key to search for.
+     * @return true or false based on whether
+     *         the node/knot with the key exists
+     *         in the tree.
+     */
     @Override
     public boolean search(int k) {
         Knot x = Tree;
@@ -72,50 +72,56 @@ public class DictBinTree implements Dict {
             } else {
                 x = x.rightchild;
             }
-
         }
         return false;
     }
 
-
-    //    INORDER-TREE-WALK.x/
-//     if x ¤ NIL
-//    2 INORDER-TREE-WALK.x: left/
-//            3 print x:key
-//    4 INORDER-TREE-WALK.x:right/
-
+    /**
+     * This method creates the building blocks
+     * for the recursion. Afterwards it copies
+     * all the information from the ArrayList
+     * into an array. This is done, so that the
+     * method can return an integer-array.
+     *
+     * @return A sorted array of integers from
+     *         the tree.
+     */
     @Override
     public int[] orderedTraversal() {
-
-        ArrayList<Integer> order2 = new ArrayList();
-        order2 = recursivetranversal(Tree, order2);
+        ArrayList<Integer> order2 = new ArrayList<>();
+        order2 = recursiveTraversal(Tree, order2);
         int[] order = new int[order2.size()];
-        for (int i = 0; i < order2.size(); i++) {
-            order[i] = order2.get(i);
-            //System.out.println("adding " + order2.get(i) + " to return list");
-        }
+        for (int i = 0; i < order2.size(); i++) order[i] = order2.get(i);
         return order;
     }
 
-
-    public ArrayList recursivetranversal(Knot knot, ArrayList order) {
+    /**
+     * Recursive method that traverses down the
+     * tree starting by the left children and
+     * then "slowly working its way to the right.
+     *              12
+     *       5              18
+     *   2       9      15      19
+     *                13  17
+     * Recursion through the tree above would
+     * result in an array in the following order:
+     * [2,5,9,12,13,15,17,18,19]
+     *
+     * @param knot The current knot.
+     * @param order An ArrayList containing all
+     *              the elements that has already
+     *              been inserted in a sorted
+     *              order.
+     * @return Returns the final sorted order.
+     */
+    public ArrayList<Integer> recursiveTraversal(Knot knot, ArrayList<Integer> order) {
         if (knot != null) {
-            order = recursivetranversal(knot.leftchild, order);
-            //System.out.println(knot.key);
+            order = recursiveTraversal(knot.leftchild, order);
             order.add(knot.key);
-            order = recursivetranversal(knot.rightchild, order);
-
+            order = recursiveTraversal(knot.rightchild, order);
         }
         return order;
-
     }
-//    @Override
-//    public int[] orderedTraversal() {
-//                            }
-//
-//    }
-
-
 }
 
 

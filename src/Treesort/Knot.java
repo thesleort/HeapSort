@@ -1,11 +1,16 @@
-package Treesort; /**
- * Created by trpet15 - Troels Blicher Petersen <troels@newtec.dk> on 3/4/16.
+package Treesort;
+
+/**
+ * Created by Troels Blicher Petersen <troels@newtec.dk>    <trpet15>
+ *          & Mark jervelund          <Mark@jervelund.com>  <Mjerv15> on 30-Mar-16.
  */
 
 /**
- * This object holds a key and an object.
- * The key is the one to be sorted and the
- * object may hold whatever data.
+ * This object holds a key.
+ * The key is the one to be sorted.
+ *
+ * It also holds information about who its children are
+ * and what parent it has.
  */
 public class Knot {
     public int key;
