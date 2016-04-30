@@ -5,6 +5,8 @@ package Treesort;
  *          & Mark jervelund          <Mark@jervelund.com>  <Mjerv15> on 30-Mar-16.
  */
 
+import java.nio.file.Path;
+
 /**
  * This object holds a key.
  * The key is the one to be sorted.
@@ -26,5 +28,8 @@ public class Knot {
     }
 
 }
+
+
+
 
 

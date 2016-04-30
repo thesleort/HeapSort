@@ -8,7 +8,9 @@ import java.util.ArrayList;
  */
 public class DictBinTree implements Dict {
 
-    Knot Tree = new Knot(0);
+    Knot Tree = null;
+    int size = 0;
+    int position = 0;
 
     /**
      * Inserts an integer that acts as the key. It then
@@ -26,8 +28,9 @@ public class DictBinTree implements Dict {
     @Override
     public void insert(int k) {
         Knot z = new Knot(k);
-        Knot y = new Knot(k);
+        Knot y = null;
         Knot x = Tree;
+        size++;
         while (x != null) {
             y = x;
             if (z.key < x.key) {
@@ -38,6 +41,7 @@ public class DictBinTree implements Dict {
         }
         z.parent = y;
         if (y == null) {
+            System.out.println("setting new root to "+z.key);
             Tree = z;
         } else if (z.key < y.key) {
             y.leftchild = z;
@@ -65,13 +69,14 @@ public class DictBinTree implements Dict {
     public boolean search(int k) {
         Knot x = Tree;
         while (x != null && k != x.key) {
-            if (k == x.key) {
-                return true;
-            } else if (k < x.key) {
+            if (k < x.key) {
                 x = x.leftchild;
             } else {
                 x = x.rightchild;
             }
+        }
+        if (x != null && k == x.key) {
+            return true;
         }
         return false;
     }
@@ -88,10 +93,8 @@ public class DictBinTree implements Dict {
      */
     @Override
     public int[] orderedTraversal() {
-        ArrayList<Integer> order2 = new ArrayList<>();
-        order2 = recursiveTraversal(Tree, order2);
-        int[] order = new int[order2.size()];
-        for (int i = 0; i < order2.size(); i++) order[i] = order2.get(i);
+        int[] order = new int[size];
+        order  = recursiveTraversal(Tree, order);
         return order;
     }
 
@@ -114,10 +117,11 @@ public class DictBinTree implements Dict {
      *              order.
      * @return Returns the final sorted order.
      */
-    public ArrayList<Integer> recursiveTraversal(Knot knot, ArrayList<Integer> order) {
+    public int[] recursiveTraversal(Knot knot, int[] order) {
         if (knot != null) {
             order = recursiveTraversal(knot.leftchild, order);
-            order.add(knot.key);
+            order[position] = knot.key;
+            position++;
             order = recursiveTraversal(knot.rightchild, order);
         }
         return order;
