@@ -41,7 +41,6 @@ public class DictBinTree implements Dict {
         }
         z.parent = y;
         if (y == null) {
-            System.out.println("setting new root to "+z.key);
             Tree = z;
         } else if (z.key < y.key) {
             y.leftchild = z;
