@@ -3,5 +3,12 @@
  */
 public class Encode {
     String[] Occurances = new String[256];
+    Element Hudffmannode;
+
+
+    public void Encode(String[] args) {
+
+    }
+
 
 }
