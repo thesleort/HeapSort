@@ -26,7 +26,7 @@ public class Treesort {
                 dt.insert(num);
             }
         }
-        System.out.println(dt.search(5));
+        System.out.println("Looking for number 5 "+dt.search(5));
         int [] list = dt.orderedTraversal();
         for (int i = 0; i < list.length ; i++) System.out.println(list[i]);
     }
